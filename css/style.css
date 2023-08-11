@@ -101,7 +101,20 @@ input:focus {
 }
 
 .container-btn {
-    
+    width: 100%;
+    text-align: right;
+}
+
+.btn {
+    padding: 20px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--cor0);
+}
+
+.btn:hover {
+    background-color: var(--cor6);
+    cursor: pointer;
 }
 
 
