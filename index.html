@@ -1,36 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculador de Idade</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
 </head>
 <body>
-    <main class="container">
-            <div class="container-input">
-                <div class="containers-inputs day">
-                    <label for="day">D A Y</label>
-                    <input type="text" name="day" id="day" placeholder="DD">
+    <main>
+        <div class="conteiner">
+            <form id="form">
+                <div class="conteiner-input">
+                    <div class="box-input">
+                        <label for="dia">
+                            D I A
+                        </label>
+                        <input type="number" name="dia" id="dia" placeholder="DD">
+                        <small class="exibirErro erroDia"></small>
+                    </div>
+                    <div class="box-input">
+                        <label for="mes">
+                            M Ê S
+                        </label>
+                        <input type="number" name="mes" id="mes" placeholder="MM">
+                        <small class="exibirErro erroMes"></small>
+                    </div>
+                    <div class="box-input">
+                        <label for="ano">
+                            A N O
+                        </label>
+                        <input type="number" name="ano" id="ano" placeholder="YYYY">
+                        <small class="exibirErro erroAno"></small>
+                    </div>
                 </div>
-                <div class="containers-inputs month">
-                    <label for="month">M O N T H</label>
-                    <input type="text" name="month" id="month" placeholder="MM">
+                <div class="box-btn">
+                    <hr>
+                    <button type="submit">
+                        <img src="images/icon-arrow.svg" alt="Ícone do Botão">
+                    </button>
                 </div>
-                <div class="containers-inputs year">
-                    <label for="year">Y E A R</label>
-                    <input type="text" name="year" id="year" placeholder="YYYY">
-                </div>
+            </form>
+            <div class="conteiner-h1">
+                <h1><span class="numero">- -</span> dia</h1>
+                <h1><span class="numero">- -</span> mês</h1>
+                <h1><span class="numero">- -</span> ano</h1>
             </div>
-            <div class="container-btn">
-                <button class="btn"><img src="images/icon-arrow.svg" alt="Submit button"></button>
-            </div>
-        <div class="container-text">
-            <p><span>- -</span>YEARS</p>
-            <p><span>- -</span>MONTHS</p>
-            <p><span>- -</span>DAYS</p>
         </div>
     </main>
+    <script src="js/script.js"></script>
 </body>
 </html>
