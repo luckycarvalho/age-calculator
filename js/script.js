@@ -9,6 +9,12 @@ const anoNasc = document.getElementById('ano');
 const diaAtual = new Date().getDate();
 const mesAtual = new Date().getMonth() + 1;
 const anoAtual = new Date().getFullYear();
+const diasMes = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+// Prints da idade
+const exibirAno = document.querySelector('#exibirAno');
+const exibirMes = document.querySelector('#exibirMes');
+const exibirDia = document.querySelector('#exibirDia');
 
 // Limitando a quantidade de dígitos
 const maxDigitosDia = 2
@@ -39,31 +45,69 @@ function apagarErro(input) {
     input.nextElementSibling.innerHTML = '';
 };
 
-// Validações
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
+// Validação de campos vazios ou incorretos
+function validarCampos() {
+    let temErros = false;
 
-    const diasMes = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    
     if (diaNasc.value == "") {
         exibirErro(diaNasc, 'Este campo é obrigatório');
+        temErros = true;
+    } else if (diaNasc.value <= 0 || diaNasc.value > diasMes[mesNasc.value - 1]) {
+        exibirErro(diaNasc, 'Digite um dia válido');
+        temErros = true;
     };
+
     if (mesNasc.value == "") {
         exibirErro(mesNasc, 'Este campo é obrigatório');
+        temErros = true;
+    } else if (mesNasc.value <= 0 || mesNasc.value > 12) {
+        exibirErro(mesNasc, 'Digite um mês válido');
+        temErros = true;
     };
+
     if (anoNasc.value == "") {
         exibirErro(anoNasc, 'Este campo é obrigatório');
+        temErros = true;
+    } else  if (anoNasc.value <= 0 || anoNasc.value.toString().length < 4 || anoNasc.value > anoAtual) {
+        exibirErro(anoNasc, 'Digite um ano válido');
+        temErros = true;
     };
     
-    if (diaNasc.value <= 0 || diaNasc.value > diasMes[mesNasc.value - 1]) {
-        exibirErro(diaNasc, 'Digite um dia válido');
+    return !temErros;
+}
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!validarCampos()) {
+        return;   
+    } else {
+        const anoNascimento = anoNasc.value;
+        const mesNascimento = mesNasc.value - 1;
+        const diaNascimento = diaNasc.value;
+
+        const dataNasc = new Date(anoNascimento, mesNascimento, diaNascimento);
+
+        const idadeMilissegundos = new Date() - dataNasc
+        
+        let idadeAnos = Math.floor((idadeMilissegundos) / (365.25 * 24 * 60 * 60 * 1000 ));
+
+        let idadeMeses = mesAtual - (mesNascimento + 1);
+        if (diaAtual < diaNascimento) {
+            idadeMeses--;
+        };
+
+        if (idadeMeses < 0) {
+            idadeMeses += 12;
+        }
+
+        let idadeDias = diaAtual - diaNascimento;
+        if (idadeDias < 0) {
+            idadeDias += diasMes[mesAtual];
+        }
+        exibirAno.innerHTML = idadeAnos
+        exibirMes.innerHTML = idadeMeses
+        exibirDia.innerHTML = idadeDias
     };
-    if (mesNasc.value <= 0 || mesNasc.value > 12) {
-        exibirErro(mesNasc, 'Digite um mês válido');
-    };
-    if (anoNasc.value <= 0 || anoNasc.value.toString().length < 4 || anoNasc.value > anoAtual) {
-        exibirErro(anoNasc, 'Digite um ano válido');
-    };       
 });
 
 [diaNasc, mesNasc, anoNasc].forEach(input => {
