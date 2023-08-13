@@ -32,6 +32,23 @@ function limitarDigitos(input, maxDigitos) {
     };
 };
 
+// Função para passar para próxima caixa automaticamente
+diaNasc.addEventListener('input', () => {
+    verificarLimite(diaNasc, maxDigitosDia, 'mes');
+});
+mesNasc.addEventListener('input', () => {
+    verificarLimite(mesNasc, maxDigitosMes, 'ano');
+});
+
+function verificarLimite(input, maxDigitos, proximaCaixaId) {
+    const valor = input.value;
+    if (valor.toString().length >= maxDigitos) {
+        const proximaCaixa = document.getElementById(proximaCaixaId);
+        proximaCaixa.removeAttribute('disabled');
+        proximaCaixa.focus();
+    };
+};
+
 // Exibir erros
 function exibirErro(input, mensagem) {
     input.previousElementSibling.classList.add('label-invalido'); 
@@ -87,7 +104,7 @@ form.addEventListener('submit', (event) => {
 
         const dataNasc = new Date(anoNascimento, mesNascimento, diaNascimento);
 
-        const idadeMilissegundos = new Date() - dataNasc
+        const idadeMilissegundos = new Date() - dataNasc;
         
         let idadeAnos = Math.floor((idadeMilissegundos) / (365.25 * 24 * 60 * 60 * 1000 ));
 
@@ -98,15 +115,16 @@ form.addEventListener('submit', (event) => {
 
         if (idadeMeses < 0) {
             idadeMeses += 12;
-        }
+        };
 
         let idadeDias = diaAtual - diaNascimento;
         if (idadeDias < 0) {
             idadeDias += diasMes[mesAtual];
-        }
-        exibirAno.innerHTML = idadeAnos
-        exibirMes.innerHTML = idadeMeses
-        exibirDia.innerHTML = idadeDias
+        };
+
+        exibirAno.innerHTML = idadeAnos;
+        exibirMes.innerHTML = idadeMeses;
+        exibirDia.innerHTML = idadeDias;
     };
 });
 

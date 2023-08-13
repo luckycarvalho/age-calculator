@@ -19,6 +19,12 @@ Os usuários devem ser capazes de:
 - Veja os estados de foco e foco para todos os elementos interativos na página
 - 
 
+### Capturas de tela
+
+[image-desktop](design/imagem-desktop.png)
+[image-celular](design/imagem-celular.png.png)
+
+
 ### Links
 - URL do site ao vivo: [Minha solução: https://luckycarvalho.github.io/calculador-idade/](https://luckycarvalho.github.io/calculador-idade/)
 
