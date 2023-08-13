@@ -76,23 +76,31 @@ main {
     gap: 20px;
 }
 
+label.label-invalido {
+    color: var(--Light-red);
+}
+
 label {
     font-family: 'Poppins-Bold', sans-serif;
     color: var(--Smokey-grey);
+}
+
+input.input-invalido {
+    outline: 1px solid var(--Light-red);
 }
 
 input {
     width: 100%;
     padding: 15px;
     border-radius: 10px;
-    border: 1px solid var(--Light-grey);
-    outline: none;
+    border: none;
+    outline: 1px solid var(--Light-grey);
     font-size: 1.5em;
     font-family: 'Poppins-Bold', sans-serif;
 }
 
 input:focus {
-    outline: 1px solid var(--Light-grey);
+    outline: 2px solid var(--Light-grey);
 }
 
 input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
