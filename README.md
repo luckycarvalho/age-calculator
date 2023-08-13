@@ -22,8 +22,7 @@ Os usuários devem ser capazes de:
 ### Capturas de tela
 
 - ![image-desktop](design/imagem-desktop.png)
-  
-- ![image-celular](design/imagem-celular.png.png)
+- ![image-celular](design/imagem-celular.png)
 
 
 ### Links
