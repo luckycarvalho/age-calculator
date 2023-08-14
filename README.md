@@ -26,7 +26,7 @@ Os usuários devem ser capazes de:
 
 
 ### Links
-- URL do site ao vivo: [Minha solução: https://luckycarvalho.github.io/calculador-idade/](https://luckycarvalho.github.io/calculador-idade/)
+- URL do site ao vivo: [https://luckycarvalho.github.io/calculador-idade/](https://luckycarvalho.github.io/calculador-idade/)
 
 ## Meu processo
 
